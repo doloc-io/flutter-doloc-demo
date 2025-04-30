@@ -4,5 +4,6 @@
     "description": "default app title from flutter starter"
   },
   "pushInfo": "You have pushed the button this many times:",
-  "incrementTooltip": "Increment"
+  "incrementTooltip": "Increment",
+  "newKey": "This is a shiny new text :)"
 }

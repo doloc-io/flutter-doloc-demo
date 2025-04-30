@@ -1,5 +1,6 @@
 {
       "appTitle": "Flutter Beispiel-Startseite",
       "pushInfo": "So oft haben Sie die Schaltfläche gedrückt:",
-      "incrementTooltip": "Erhöhen"
+      "incrementTooltip": "Erhöhen",
+      "newKey": "Das ist ein glänzender neuer Text :)"
 }

@@ -111,6 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(AppLocalizations.of(context)!.newKey, style: Theme.of(context).textTheme.headlineSmall),
             Text(AppLocalizations.of(context)!.pushInfo),
             Text(
               '$_counter',
