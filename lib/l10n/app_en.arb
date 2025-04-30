@@ -1,0 +1,8 @@
+{
+  "appTitle": "Flutter Demo Home Page",
+  "@appTitle": {
+    "description": "default app title from flutter starter"
+  },
+  "pushInfo": "You have pushed the button this many times:",
+  "incrementTooltip": "Increment"
+}
