@@ -25,7 +25,7 @@ void main(List<String> args) async {
   addFilePart('target', resultFile);
   body.write('--$boundary--\r\n');
 
-  final request = await HttpClient().postUrl(Uri.parse('https://test.api.doloc.io'))
+  final request = await HttpClient().postUrl(Uri.parse('https://api.doloc.io'))
     ..headers.set(HttpHeaders.contentTypeHeader, 'multipart/form-data; boundary=$boundary')
     ..headers.set(HttpHeaders.authorizationHeader, 'Bearer $apiToken')
     ..add(utf8.encode(body.toString()));
