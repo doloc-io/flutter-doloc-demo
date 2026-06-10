@@ -15,30 +15,25 @@ jobs:
     steps:
       # Step 1: Check out the repository
       - name: Check out repository
-        uses: actions/checkout@v3
-
-      - name: Install Dart
-        uses: dart-lang/setup-dart@v1
-        with:
-          sdk: stable
+        uses: actions/checkout@v6
 
       # Step 2: Extract texts (if needed, customize this for your format/tool):
       # NOT NEEDED FOR FLUTTER!
 
       # Step 3: Run doloc for translations
       - name: Translate with doloc
-        env:
-          API_TOKEN: ${{ secrets.DOLOC_API_TOKEN }}
-        run: |
-          dart run tool/doloc.dart
+        id: doloc
+        uses: doloc-io/doloc-action@v1
+        with:
+          token: ${{ secrets.DOLOC_API_TOKEN }}
+          source: lib/l10n/app_en.arb
+          targets: |
+            lib/l10n/app_de.arb
 
       # Step 4: Check for changes and commit if needed
-      - name: Commit and push changes if any
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git diff --ignore-cr-at-eol --quiet || (
-            git add lib/l10n/*.arb
-            git commit -m "Update translations via doloc"
-            git push
-          )
+      - name: Commit translation updates
+        if: steps.doloc.outputs.changed == 'true'
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: Update translations via doloc
+          file_pattern: lib/l10n/app_de.arb

@@ -41,14 +41,14 @@ An example could be:
 ```
 
 After adding the new message, you need to run doloc to translate and add it to the translated files.
-There are two alternative ways to do that:
+This demo shows two alternative paths:
 
-- Local workflow
-- CI workflow
+- Local workflow: the plain Dart script for local development.
+- CI workflow: the [`doloc-io/doloc-action@v1`](https://github.com/marketplace/actions/doloc-i18n-translation) GitHub Action for automation.
 
 ### Local workflow
 
-Run the following command to extract the new message:
+Run the plain Dart script to translate the new message locally:
 
 ```bash
 export API_TOKEN=YOUR_API_TOKEN
@@ -60,7 +60,7 @@ Observe that the new message is added to `lib/l10n/app_de.arb` and already trans
 ### CI workflow
 
 If you are using the CI workflow, you can simply push your changes to the repository.
-Check out the workflow definition in `.github/workflows/localization.yml` to see how the translations are updated.
+Check out the workflow definition in `.github/workflows/localization.yml` to see how [`doloc-io/doloc-action@v1`](https://github.com/marketplace/actions/doloc-i18n-translation) updates the translations.
 
 When your change is merged into the main branch, the translations will be updated automatically and a new commit will be created with the updated translations.
 
